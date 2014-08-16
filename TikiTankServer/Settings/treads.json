@@ -74,6 +74,28 @@
 					"Class":"SolidColor",
 					"IsSensorDriven":false
 				}
+ },
+
+ {
+ "Information":	{
+					"Name":"Full Rainbow Tread",
+					"Description":"Treads are full rainbow that moves"
+				},
+ "Effect":		{
+					"Class":"FullRainbowTread",
+					"IsSensorDriven":true
+				}
+ },
+
+ {
+ "Information":	{
+					"Name":"Rando Tread",
+					"Description":"Random color tread"
+				},
+ "Effect":		{
+					"Class":"RandoTread",
+					"IsSensorDriven":true
+				}
  }
 
  ]

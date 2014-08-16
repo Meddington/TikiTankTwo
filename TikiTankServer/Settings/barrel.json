@@ -39,7 +39,18 @@
 					"Color":"Red"
 				}
  },
-
+ 
+ {
+ "Information":	{
+					"Name":"Shooting Star",
+					"Description":"lines down barrel"
+				},
+ "Effect":		{
+					"Class":"ShootingStar",
+					"IsSensorDriven":false
+				}
+ },
+ 
  {
  "Information":	{
 					"Name":"Solid Color",
@@ -47,6 +58,28 @@
 				},
  "Effect":		{
 					"Class":"SolidColor",
+					"IsSensorDriven":false
+				}
+ },
+ 
+ {
+ "Information":	{
+					"Name":"Kit",
+					"Description":"Kit"
+				},
+ "Effect":		{
+					"Class":"KitBarrel",
+					"IsSensorDriven":false
+				}
+ },
+
+ {
+ "Information":	{
+					"Name":"MultiLineBarrel",
+					"Description":"MultiLineBarrel"
+				},
+ "Effect":		{
+					"Class":"MultiLineBarrel",
 					"IsSensorDriven":false
 				}
  }
