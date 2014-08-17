@@ -89,11 +89,11 @@
 
  {
  "Information":	{
-					"Name":"Rando Tread",
+					"Name":"Ants Tread",
 					"Description":"Random color tread"
 				},
  "Effect":		{
-					"Class":"RandoTread",
+					"Class":"AntsTread",
 					"IsSensorDriven":true
 				}
  }
