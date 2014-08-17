@@ -7,7 +7,7 @@ namespace TikiTankCommon.Effects
     /// <summary>
     /// Multiple moving lines on barrel with random colors
     /// </summary>
-    public class MultiLineBarrel : IEffect
+	public class MultiLineBarrel : IBarrelEffect
     {
         public MultiLineBarrel()
         {

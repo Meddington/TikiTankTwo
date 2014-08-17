@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace TikiTankCommon.Effects
 {
-    public class DMXSolidColor : IEffect
+	public class DMXSolidColor : IPanelEffect
     {
         public DMXSolidColor()
         {

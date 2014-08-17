@@ -4,7 +4,7 @@ using System;
 
 namespace TikiTankCommon.Effects
 {
-    public class KitBarrel : IEffect
+	public class KitBarrel : IBarrelEffect
     {
         public KitBarrel()
         {
@@ -55,6 +55,8 @@ namespace TikiTankCommon.Effects
 
         public void FrameUpdate(Color[] pixels)
         {
+			Console.WriteLine("test");
+
             if (right)
             {
                 StripHelper.ShiftRight(pixels);

@@ -4,7 +4,7 @@ using System;
 
 namespace TikiTankCommon.Effects
 {
-    public class ShootingStar : IEffect
+	public class ShootingStar : IBarrelEffect
     {
         public ShootingStar()
         {

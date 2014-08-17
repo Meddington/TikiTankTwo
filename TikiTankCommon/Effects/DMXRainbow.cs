@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace TikiTankCommon.Effects
 {
-    public class DMXRainbow : IEffect
+	public class DMXRainbow : IPanelEffect
     {
         public DMXRainbow() 
         {

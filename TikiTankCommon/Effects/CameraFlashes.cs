@@ -4,7 +4,7 @@ using System;
 
 namespace TikiTankCommon.Effects
 {
-public class CameraFlashes : IEffect
+	public class CameraFlashes : IBarrelEffect
 {
 	public CameraFlashes()
 	{

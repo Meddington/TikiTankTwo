@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace TikiTankCommon.Effects
 {
-    public class RainbowTread : IEffect
+    public class RainbowTread : ITreadEffect
     {
         enum Direction
         {            

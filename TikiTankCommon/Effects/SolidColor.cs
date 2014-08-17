@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace TikiTankCommon.Effects
 {
-    public class SolidColor : IEffect
+	public class SolidColor : IBarrelEffect
     {
         public SolidColor()
         {

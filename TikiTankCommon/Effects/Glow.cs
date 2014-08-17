@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace TikiTankCommon.Effects
 {
-public class Glow : IEffect
+	public class Glow : IBarrelEffect
 {
 	public Glow()
 	{		

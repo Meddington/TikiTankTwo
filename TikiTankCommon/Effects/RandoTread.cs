@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace TikiTankCommon.Effects
 {
-    public class RandoTread : IEffect
+	public class RandoTread : ITreadEffect
     {
         private int _counter = 0;
         public RandoTread()

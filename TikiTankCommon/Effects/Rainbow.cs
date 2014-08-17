@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace TikiTankCommon.Effects
 {
-    public class Rainbow : IEffect
+	public class Rainbow : IBarrelEffect
     {
         public Rainbow()
         {
