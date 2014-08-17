@@ -13,7 +13,7 @@ Currently we have three output devices for the effects:
 Creating effects
 ----------------------------
 
-Every effect implements simple *IEffect* interface, with following signature.
+Every effect implements simple *IEffect* interface, with following signature. To use your effect with the effect simulator is must implement one of the specific interfaces (IBarrelEffect, ITreadEffect, IPanelEffect).
 
     public interface IEffect
     {
@@ -27,6 +27,10 @@ Every effect implements simple *IEffect* interface, with following signature.
         string Argument { get; set; }
         System.Drawing.Color Color { get; set; }
 	}
+
+	public interface IBarrelEffect : IEffect {}
+	public interface ITreadEffect : IEffect {}
+	public interface IPanelEffect : IEffect {}
 
 ### *void Activate(System.Drawing.Color[] pixels)* ###
 
