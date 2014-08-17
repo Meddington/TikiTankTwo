@@ -42,11 +42,17 @@
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ColorExtend.cs" />
     <Compile Include="ColorHelper.cs" />
     <Compile Include="Effects\CameraFlashes.cs" />
     <Compile Include="Effects\DMXGlow.cs" />
     <Compile Include="Effects\DMXRainbow.cs" />
+    <Compile Include="Effects\FullRainbowTread.cs" />
+    <Compile Include="Effects\KitBarrel.cs" />
+    <Compile Include="Effects\MultiLineBarrel.cs" />
     <Compile Include="Effects\RainbowTread.cs" />
+    <Compile Include="Effects\RandoTread.cs" />
+    <Compile Include="Effects\ShootingStar.cs" />
     <Compile Include="Hardware\BeagleBoneBlack.cs" />
     <Compile Include="Hardware\DMXControl.cs" />
     <Compile Include="Hardware\LPD8806.cs" />
