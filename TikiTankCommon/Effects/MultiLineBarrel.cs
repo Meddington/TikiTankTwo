@@ -43,22 +43,28 @@ namespace TikiTankCommon.Effects
                     pos += 1;
                     if (pos >= pixels.Length)
                     {
-                        pos = 0;
+						up = false;
+						pos = pixels.Length - 1;
                         changeCount += 1;
                     }
-                }
+					else
+						for (int i = pos, x = 0; i > -1 && x < lineLen; i--, x++)
+							pixels[i] = color.MakeDarker(0.05f * (float)x);
+				}
                 else
                 {
                     pos -= 1;
                     if (pos < 0)
                     {
-                        pos = pixels.Length - 1;
-                        changeCount += 1;
+						up = true;
+						pos = 0;
+						changeCount += 1;
                     }
-                }
+					else
+						for (int i = pos-lineLen, x = 0; i >-1 && x < lineLen; i++, x++)
+							pixels[i] = color.MakeBrighter(0.05f * (float)x);
+				}
 
-                for (int i = pos, x = 0; i > -1 && x < lineLen; i--, x++)
-                    pixels[i] = color.MakeDarker(0.05f * (float)x);
             }
         }
 
@@ -66,19 +72,26 @@ namespace TikiTankCommon.Effects
         Random rnd = new Random();
         DateTime lastChangeup = DateTime.Now;
 
+		private void Changeup(Color[] pixels)
+		{
+			lastChangeup = DateTime.Now;
+
+			lines = new Line[rnd.Next(10) + 1];
+
+			Console.WriteLine("lines: " + lines.Length);
+
+			for (int i = 0; i < lines.Length; i++)
+				lines[i] = new Line(
+					rnd.Next(int.MaxValue) % 2 == 0 ? true : false,
+					Color.FromArgb(rnd.Next()), rnd.Next(pixels.Length - 1));
+
+			for (int i = 0; i < pixels.Length; i++)
+				pixels[i] = Color.Black;
+		}
+
         public void Activate(System.Drawing.Color[] pixels)
         {
-            lastChangeup = DateTime.Now;
-
-            lines = new Line[rnd.Next(10)+1];
-
-            Console.WriteLine("lines: " + lines.Length);
-
-            for(int i = 0; i<lines.Length;i++)
-                lines[i] = new Line(rnd.Next() % 2 == 0 ? true : false, Color.FromArgb(rnd.Next()), rnd.Next(pixels.Length-1));
-
-            for (int i = 0; i < pixels.Length; i++)
-                pixels[i] = Color.Black;
+			Changeup(pixels);
         }
 
         public void Deactivate(Color[] pixels) { }
@@ -99,11 +112,8 @@ namespace TikiTankCommon.Effects
         public void FrameUpdate(Color[] pixels)
         {
             // Change up every 60 seconds
-            if ((DateTime.Now - lastChangeup).TotalSeconds > 60)
-            {
-                this.Activate(pixels);
-                return;
-            }
+            if ((DateTime.Now - lastChangeup).TotalSeconds > 15)
+				Changeup(pixels);
 
             for (int i = 0; i < pixels.Length; i++)
                 pixels[i] = Color.Black;

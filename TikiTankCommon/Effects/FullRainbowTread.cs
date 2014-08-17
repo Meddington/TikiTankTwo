@@ -3,97 +3,37 @@ using System.Drawing;
 
 namespace TikiTankCommon.Effects
 {
-	public class FullRainbowTread : ITreadEffect
+	public class FullRainbowTread : BaseTreadEffect, ITreadEffect
     {
-        enum Direction
-        {
-            Stop,
-            Forward,
-            Backward
-        }
+		private Color[] memory;
+		private DateTime startTime;
 
-        public FullRainbowTread()
+		public FullRainbowTread()
+			: base()
         {
-            this.Argument = "0";
             this.Color = Color.FromArgb(255, 255, 255);
             startTime = DateTime.Now;
         }
 
-        public void Activate(Color[] pixels)
+        public override void Activate(Color[] pixels)
         {
-            for (int i = 0; i < pixels.Length; i++)
-            {
-                pixels[(pixels.Length - 1) - i] = this.Color;
-            }
+			for (int i = 0; i < pixels.Length; i++)
+			{
+				if (i >= 384)
+					pixels[(pixels.Length - 1) - i] = ColorHelper.Wheel(383);
+				else
+					pixels[(pixels.Length - 1) - i] = ColorHelper.Wheel(i);
+			}
 
-            memory = new Color[pixels.Length];
-            Array.Copy(pixels, memory, pixels.Length);
-        }
-
-        public void Deactivate(Color[] pixels) { }
-
-        public bool WouldUpdate()
-        {
-            return true;
-        }
-
-        public void FrameUpdate(Color[] pixels)
-        {
-            if (!IsSensorDriven)
-            {
-                TimeSpan delta = DateTime.Now - startTime;
-                if (delta.TotalMilliseconds > _delay)
-                {
-                    startTime = DateTime.Now;
-                    Tick();
-                }
-            }
-
-            Array.Copy(memory, pixels, pixels.Length);
+			memory = pixels;
         }
 
         public void Tick()
         {
-            if (_direction == Direction.Forward)
+            if (direction == Direction.Forward)
                 StripHelper.RotateRight(memory);
-            else if (_direction == Direction.Backward)
+            else if (direction == Direction.Backward)
                 StripHelper.RotateLeft(memory);
         }
-
-        public bool IsSensorDriven { get; set; }
-
-        public Color Color { get; set; }
-
-        public string Argument
-        {
-            get
-            {
-                return _arg.ToString();
-            }
-            set
-            {
-                int i;
-                if (int.TryParse(value, out i))
-                {
-                    _arg = i;
-
-                    if (i < 0)
-                        _direction = Direction.Backward;
-                    else if (i > 0)
-                        _direction = Direction.Forward;
-                    else if (i == 0)
-                        _direction = Direction.Stop;
-
-                    if (Math.Abs(i) > 0)
-                        _delay = 400 / Math.Abs(i);
-                }
-            }
-        }
-
-        private int _delay;
-        private int _arg;
-        private Direction _direction;
-        private Color[] memory;
-        private DateTime startTime;
     }
 }

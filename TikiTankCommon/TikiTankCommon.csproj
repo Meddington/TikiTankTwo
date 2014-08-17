@@ -42,6 +42,7 @@
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseTreadEffect.cs" />
     <Compile Include="ColorExtend.cs" />
     <Compile Include="ColorHelper.cs" />
     <Compile Include="Effects\CameraFlashes.cs" />
@@ -51,7 +52,7 @@
     <Compile Include="Effects\KitBarrel.cs" />
     <Compile Include="Effects\MultiLineBarrel.cs" />
     <Compile Include="Effects\RainbowTread.cs" />
-    <Compile Include="Effects\RandoTread.cs" />
+    <Compile Include="Effects\AntsTread.cs" />
     <Compile Include="Effects\ShootingStar.cs" />
     <Compile Include="Hardware\BeagleBoneBlack.cs" />
     <Compile Include="Hardware\DMXControl.cs" />
